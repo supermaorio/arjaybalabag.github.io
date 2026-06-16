@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -11,77 +10,95 @@
 
 <body>
 
-```
-<nav>
-    <a href="#">Home</a>
-    <a href="#about">About</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-</nav>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-<section class="hero">
+    <section class="hero">
 
-    <img src="images/profile.png" alt="Arjay Balabag" class="profile">
+        <img src="images/profile.png" alt="Arjay Balabag" class="profile">
 
-    <h1>Arjay Freg Balabag</h1>
+        <h1>Arjay Freg Balabag</h1>
 
-    <p class="subtitle">
-        Layout Artist • Graphic Designer • Visual Storyteller
-    </p>
+        <p class="subtitle">
+            Layout Artist • Graphic Designer • Visual Storyteller
+        </p>
 
-    <div class="hero-buttons">
-        <a href="#portfolio" class="btn">View Portfolio</a>
-        <a href="resume.pdf" class="btn btn-secondary">Download Resume</a>
+        <div class="hero-buttons">
+            <a href="#portfolio" class="btn">View Portfolio</a>
+            <a href="resume.pdf" class="btn btn-secondary" target="_blank">
+                Download Resume
+            </a>
+        </div>
+
+    </section>
+
+    <section id="about">
+
+        <h2>About Me</h2>
+
+        <p>
+            I am a Layout Artist and Graphic Designer specializing in social media campaigns,
+            promotional materials, event branding, and visual storytelling.
+            My work focuses on creating visually engaging designs that communicate
+            ideas clearly and effectively.
+        </p>
+
+    </section>
+
+    <section id="portfolio">
+
+        <h2>Featured Projects</h2>
+        
+        <div class="gallery">
+
+            <img src="images/sportsfest.jpg" alt="Sports Fest" onclick="openLightbox(this.src)">
+            <img src="images/retreat.jpg" alt="Retreat" onclick="openLightbox(this.src)">
+            <img src="images/fellowship.jpg" alt="Fellowship" onclick="openLightbox(this.src)">
+            <img src="images/foundationschool.jpg" alt="Foundation School" onclick="openLightbox(this.src)">
+            <img src="images/youthcamp.jpg" alt="Youth Camp" onclick="openLightbox(this.src)">
+            <img src="images/vbs.jpg" alt="Vacation Bible School" onclick="openLightbox(this.src)">
+            <img src="images/conference.jpg" alt="Conference" onclick="openLightbox(this.src)">
+            <img src="images/product.jpg" alt="Product Design" onclick="openLightbox(this.src)">
+
+        </div>
+
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="">
     </div>
 
-</section>
+    <section id="contact">
 
-<section id="about">
+        <h2>Let's Connect</h2>
 
-    <h2>About Me</h2>
+        <p>Email: arjayfreg@gmail.com</p>
+        <p>Location: Davao City, Philippines</p>
+        <p>Facebook: SuperMaorio</p>
 
-    <p>
-        I am a Layout Artist and Graphic Designer specializing in social media campaigns,
-        promotional materials, event branding, and visual storytelling.
-        My work focuses on creating visually engaging designs that communicate
-        ideas clearly and effectively.
-    </p>
+    </section>
 
-</section>
+    <footer>
+        <p>© 2026 Arjay Freg Balabag</p>
+    </footer>
 
-<section id="portfolio">
+    <script>
 
-    <h2>Featured Projects</h2>
+        function openLightbox(imageSrc) {
+            document.getElementById("lightbox").style.display = "flex";
+            document.getElementById("lightbox-img").src = imageSrc;
+        }
 
-    <div class="gallery">
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
 
-        <img src="images/sportsfest.jpg" alt="">
-        <img src="images/retreat.jpg" alt="">
-        <img src="images/fellowship.jpg" alt="">
-        <img src="images/foundationschool.jpg" alt="">
-        <img src="images/youthcamp.jpg" alt="">
-        <img src="images/vbs.jpg" alt="">
-        <img src="images/conference.jpg" alt="">
-        <img src="images/product.jpg" alt="">
-
-    </div>
-
-</section>
-
-<section id="contact">
-
-    <h2>Let's Connect</h2>
-
-    <p>Email: arjayfreg@gmail.com</p>
-    <p>Location: Davao City, Philippines</p>
-    <p>Facebook: SuperMaorio</p>
-
-</section>
-
-<footer>
-    <p>© 2026 Arjay Freg Balabag</p>
-</footer>
-```
+    </script>
 
 </body>
 
