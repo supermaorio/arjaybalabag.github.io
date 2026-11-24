@@ -49,11 +49,18 @@
     if (albumGrid) {
       albumGrid.replaceChildren();
       photos.forEach(photo => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'album-photo-button';
+        button.dataset.full = photo.src;
+        button.setAttribute('aria-label', 'View ' + photo.alt);
         const image = document.createElement('img');
         image.src = photo.src;
         image.alt = photo.alt;
         image.loading = 'lazy';
-        albumGrid.appendChild(image);
+        button.appendChild(image);
+        button.addEventListener('click', () => openAlbumPhoto(button));
+        albumGrid.appendChild(button);
       });
     }
     if (albumEmpty) albumEmpty.hidden = photos.length > 0;
@@ -61,6 +68,18 @@
     albumViewer?.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
     albumViewer?.querySelector('.album-viewer-close')?.focus();
+  }
+  function openAlbumPhoto(button) {
+    visibleProjects = [...(albumGrid?.querySelectorAll('.album-photo-button') || [])];
+    const index = visibleProjects.indexOf(button);
+    if (index < 0) return;
+    currentIndex = index;
+    showProject(currentIndex);
+    lastFocusedElement = button;
+    lightbox?.classList.add('open');
+    lightbox?.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    lightbox?.querySelector('.lightbox-close')?.focus();
   }
   function closeAlbum() {
     albumViewer?.classList.remove('open');
@@ -85,13 +104,12 @@
   let lastFocusedElement = null;
 
   function showProject(index) {
-    visibleProjects = projectButtons.filter(button => !button.closest('.project-card')?.hidden);
     if (!visibleProjects.length) return;
     currentIndex = (index + visibleProjects.length) % visibleProjects.length;
     const button = visibleProjects[currentIndex];
     lightboxImage.src = button.dataset.full;
     lightboxImage.alt = button.querySelector('img')?.alt || 'Project preview';
-    caption.textContent = button.closest('.project-card')?.querySelector('h3')?.textContent || '';
+    caption.textContent = button.closest('.project-card')?.querySelector('h3')?.textContent || button.querySelector('img')?.alt || '';
   }
   function openLightbox(button) {
     lastFocusedElement = document.activeElement;
