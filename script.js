@@ -24,19 +24,25 @@
   const lightboxImage = lightbox?.querySelector('img');
   const caption = lightbox?.querySelector('.lightbox-caption');
   const projectButtons = [...document.querySelectorAll('.project-image')];
+  const lightboxControls = [...(lightbox?.querySelectorAll('button') || [])];
   let currentIndex = 0;
+  let visibleProjects = projectButtons;
   let lastFocusedElement = null;
 
   function showProject(index) {
-    currentIndex = (index + projectButtons.length) % projectButtons.length;
-    const button = projectButtons[currentIndex];
+    visibleProjects = projectButtons.filter(button => !button.closest('.project-card')?.hidden);
+    if (!visibleProjects.length) return;
+    currentIndex = (index + visibleProjects.length) % visibleProjects.length;
+    const button = visibleProjects[currentIndex];
     lightboxImage.src = button.dataset.full;
     lightboxImage.alt = button.querySelector('img')?.alt || 'Project preview';
     caption.textContent = button.closest('.project-card')?.querySelector('h3')?.textContent || '';
   }
-  function openLightbox(index) {
+  function openLightbox(button) {
     lastFocusedElement = document.activeElement;
-    showProject(index);
+    visibleProjects = projectButtons.filter(item => !item.closest('.project-card')?.hidden);
+    const index = visibleProjects.indexOf(button);
+    showProject(index < 0 ? 0 : index);
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -49,15 +55,28 @@
     lastFocusedElement?.focus();
   }
 
-  projectButtons.forEach((button, index) => button.addEventListener('click', () => openLightbox(index)));
+  projectButtons.forEach(button => button.addEventListener('click', () => openLightbox(button)));
   lightbox?.querySelector('.lightbox-close')?.addEventListener('click', closeLightbox);
   lightbox?.querySelector('.lightbox-prev')?.addEventListener('click', () => showProject(currentIndex - 1));
   lightbox?.querySelector('.lightbox-next')?.addEventListener('click', () => showProject(currentIndex + 1));
-  lightbox?.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
+  lightbox?.addEventListener('click', event => {
+    if (event.target === lightbox) closeLightbox();
+  });
   document.addEventListener('keydown', event => {
     if (!lightbox?.classList.contains('open')) return;
     if (event.key === 'Escape') closeLightbox();
     if (event.key === 'ArrowLeft') showProject(currentIndex - 1);
     if (event.key === 'ArrowRight') showProject(currentIndex + 1);
+    if (event.key === 'Tab' && lightboxControls.length) {
+      const first = lightboxControls[0];
+      const last = lightboxControls[lightboxControls.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
   });
 })();
