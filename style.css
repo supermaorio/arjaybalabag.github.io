@@ -27,3 +27,30 @@
 .profile-stats{display:flex;flex-wrap:wrap;gap:10px 28px;border-top:1px solid var(--line);padding-top:15px;color:var(--muted);font-size:9px;font-weight:700;letter-spacing:1.1px}
 @media(max-width:850px){.profile-hero{padding-left:6%;padding-right:6%}.profile-panel{grid-template-columns:165px 1fr;gap:22px;padding:0 15px}.profile-avatar{width:150px;height:150px;margin-top:-65px}.profile-heading{align-items:flex-start;flex-direction:column}.profile-actions{gap:14px}.profile-details{padding-top:20px}}
 @media(max-width:640px){.profile-hero{padding:0 0 35px}.cover-photo{height:220px;border-radius:0}.cover-label{left:17px;bottom:14px;font-size:8px}.profile-panel{display:block;padding:0 6%}.profile-avatar{width:126px;height:126px;margin-top:-58px;border-width:5px}.profile-details{padding-top:15px}.profile-heading{gap:18px}.profile-heading h1{font-size:34px}.profile-tagline{font-size:11px}.profile-actions{margin-top:16px;flex-wrap:wrap}.profile-bio{font-size:13px;margin:20px 0}.profile-stats{gap:9px 18px;font-size:8px;line-height:1.6}}
+
+
+/* Behance-inspired portfolio gallery — scoped only to the Work section */
+.work-section{background:#f7f8fa;padding-top:82px;padding-bottom:92px}
+.work-section .section-heading{align-items:end;margin-bottom:28px}
+.work-section .section-heading h2{font-size:clamp(38px,4.6vw,58px);letter-spacing:-.065em}
+.work-section .section-heading h2 span{color:#1769ff}
+.work-section .section-note{max-width:350px;font-size:12px}
+.work-section .filters{gap:7px;margin-bottom:25px}
+.work-section .filter{border:1px solid #d9dce2;background:#fff;border-radius:5px;padding:8px 13px;color:#50545c;font-size:11px}
+.work-section .filter:hover{border-color:#1769ff;color:#1769ff}
+.work-section .filter.active{background:#1769ff;border-color:#1769ff;color:#fff}
+.work-section .filter span{color:inherit;opacity:.75}
+.work-section .project-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 20px;align-items:start}
+.work-section .project-card{grid-column:auto;min-width:0}
+.work-section .project-image,.work-section .project-featured .project-image{height:auto;aspect-ratio:4/3;border-radius:5px;background:#e9ebef;box-shadow:0 1px 2px rgba(20,25,35,.06)}
+.work-section .project-image img{object-fit:cover;transition:transform .45s ease,filter .3s ease}
+.work-section .project-image:hover img{transform:scale(1.035);filter:brightness(.78)}
+.work-section .image-action{right:12px;bottom:12px;left:12px;justify-content:space-between;border-radius:4px;background:rgba(255,255,255,.96);padding:11px 13px;font-size:11px;opacity:0;transform:translateY(4px)}
+.work-section .project-image:hover .image-action,.work-section .project-image:focus-visible .image-action{opacity:1;transform:none}
+.work-section .project-meta{padding:11px 1px 0;align-items:flex-start}
+.work-section .project-type{font-size:8px;letter-spacing:1px;color:#737984}
+.work-section .project-meta h3{font-size:15px;line-height:1.35;letter-spacing:-.25px;font-weight:700;margin-top:3px;color:#191b20}
+.work-section .project-number{font-size:8px;color:#8a909a;letter-spacing:.7px;padding-top:2px}
+.work-section .work-footnote{font-size:9px;letter-spacing:1px;color:#747b86;margin-top:40px}
+@media(max-width:900px){.work-section .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 16px}}
+@media(max-width:640px){.work-section{padding-top:65px;padding-bottom:70px}.work-section .section-heading{display:block}.work-section .section-heading h2{font-size:46px}.work-section .section-note{margin-top:14px}.work-section .project-grid{grid-template-columns:1fr;gap:28px}.work-section .project-image,.work-section .project-featured .project-image{aspect-ratio:4/3;height:auto}.work-section .project-meta h3{font-size:16px}.work-section .image-action{opacity:1;transform:none}}
