@@ -20,80 +20,6 @@
     });
   }));
 
-  // Album folders are intentionally empty until photo sets are supplied.
-  const albumViewer = document.querySelector('.album-viewer');
-  const albumTitle = albumViewer?.querySelector('.album-viewer-title');
-  const albumEmpty = albumViewer?.querySelector('.album-empty');
-  const albumNames = {events:'iDeasigns',photography:'mugnaniMao'};
-  const albumPhotos = {
-    events: [
-      {src:'images/sportsfest.jpg',alt:'Sports Fest event'},
-      {src:'images/retreat.jpg',alt:'Retreat event'},
-      {src:'images/fellowship.jpg',alt:'Fellowship event'},
-      {src:'images/foundationschool.jpg',alt:'Foundation School'},
-      {src:'images/youthcamp.jpg',alt:'Youth Camp'},
-      {src:'images/vbs.jpg',alt:'Vacation Bible School'},
-      {src:'images/conference.jpg',alt:'Conference'},
-      {src:'images/anniversary.jpg',alt:'Anniversary'}
-    ],
-    photography: []
-  };
-  const albumGrid = albumViewer?.querySelector('.album-photo-grid');
-  const albumButtons = [...document.querySelectorAll('.collection-card')];
-  let albumLastFocus = null;
-  function openAlbum(button) {
-    albumLastFocus = document.activeElement;
-    const album = button.dataset.album;
-    if (albumTitle) albumTitle.textContent = albumNames[album] || 'Photo Album';
-    const photos = albumPhotos[album] || [];
-    if (albumGrid) {
-      albumGrid.replaceChildren();
-      photos.forEach(photo => {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.className = 'album-photo-button';
-        button.dataset.full = photo.src;
-        button.setAttribute('aria-label', 'View ' + photo.alt);
-        const image = document.createElement('img');
-        image.src = photo.src;
-        image.alt = photo.alt;
-        image.loading = 'lazy';
-        button.appendChild(image);
-        button.addEventListener('click', () => openAlbumPhoto(button));
-        albumGrid.appendChild(button);
-      });
-    }
-    if (albumEmpty) albumEmpty.hidden = photos.length > 0;
-    albumViewer?.classList.add('open');
-    albumViewer?.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-    albumViewer?.querySelector('.album-viewer-close')?.focus();
-  }
-  function openAlbumPhoto(button) {
-    visibleProjects = [...(albumGrid?.querySelectorAll('.album-photo-button') || [])];
-    const index = visibleProjects.indexOf(button);
-    if (index < 0) return;
-    currentIndex = index;
-    showProject(currentIndex);
-    lastFocusedElement = button;
-    lightbox?.classList.add('open');
-    lightbox?.setAttribute('aria-hidden','false');
-    document.body.style.overflow = 'hidden';
-    lightbox?.querySelector('.lightbox-close')?.focus();
-  }
-  function closeAlbum() {
-    albumViewer?.classList.remove('open');
-    albumViewer?.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-    albumLastFocus?.focus();
-  }
-  albumButtons.forEach(button => button.addEventListener('click', () => openAlbum(button)));
-  albumViewer?.querySelector('.album-viewer-close')?.addEventListener('click', closeAlbum);
-  albumViewer?.addEventListener('click', event => { if (event.target === albumViewer) closeAlbum(); });
-  document.addEventListener('keydown', event => {
-    if (albumViewer?.classList.contains('open') && !lightbox?.classList.contains('open') && event.key === 'Escape') closeAlbum();
-  });
-
   const lightbox = document.querySelector('.lightbox');
   const lightboxImage = lightbox?.querySelector('img');
   const caption = lightbox?.querySelector('.lightbox-caption');
@@ -124,7 +50,7 @@
   function closeLightbox() {
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = albumViewer?.classList.contains('open') ? 'hidden' : '';
+    document.body.style.overflow = '';
     lastFocusedElement?.focus();
   }
 
