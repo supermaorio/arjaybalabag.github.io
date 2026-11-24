@@ -23,7 +23,7 @@
   const lightbox = document.querySelector('.lightbox');
   const lightboxImage = lightbox?.querySelector('img');
   const caption = lightbox?.querySelector('.lightbox-caption');
-  const projectButtons = [...document.querySelectorAll('.project-image:not(.comic-project-trigger), .cover-image-trigger')];
+  const projectButtons = [...document.querySelectorAll('.project-image:not(.comic-project-trigger)')];
   const lightboxControls = [...(lightbox?.querySelectorAll('button') || [])];
   let currentIndex = 0;
   let visibleProjects = projectButtons;
@@ -36,7 +36,7 @@
     const button = visibleProjects[currentIndex];
     lightboxImage.src = button.dataset.full;
     lightboxImage.alt = button.querySelector('img')?.alt || 'Project preview';
-    caption.textContent = button.closest('.project-card')?.querySelector('h3')?.textContent || 'Portfolio cover photo';
+    caption.textContent = button.closest('.project-card')?.querySelector('h3')?.textContent || '';
   }
   function openLightbox(button) {
     lastFocusedElement = document.activeElement;
