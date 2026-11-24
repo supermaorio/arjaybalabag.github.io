@@ -23,7 +23,7 @@
   const lightbox = document.querySelector('.lightbox');
   const lightboxImage = lightbox?.querySelector('img');
   const caption = lightbox?.querySelector('.lightbox-caption');
-  const projectButtons = [...document.querySelectorAll('.project-image')];
+  const projectButtons = [...document.querySelectorAll('.project-image:not(.comic-project-trigger)')];
   const lightboxControls = [...(lightbox?.querySelectorAll('button') || [])];
   let currentIndex = 0;
   let visibleProjects = projectButtons;
@@ -79,4 +79,31 @@
       }
     }
   });
+  // Keep the comic inside the portfolio in a view-only Canva embed.
+  const comicViewer = document.querySelector('.comic-viewer');
+  const comicTrigger = document.querySelector('.comic-project-trigger');
+  const comicClose = comicViewer?.querySelector('.comic-viewer-close');
+  let comicLastFocus = null;
+  function openComicViewer() {
+    comicLastFocus = document.activeElement;
+    comicViewer?.classList.add('open');
+    comicViewer?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    comicClose?.focus();
+  }
+  function closeComicViewer() {
+    comicViewer?.classList.remove('open');
+    comicViewer?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    comicLastFocus?.focus();
+  }
+  comicTrigger?.addEventListener('click', openComicViewer);
+  comicClose?.addEventListener('click', closeComicViewer);
+  comicViewer?.addEventListener('click', event => {
+    if (event.target === comicViewer) closeComicViewer();
+  });
+  document.addEventListener('keydown', event => {
+    if (comicViewer?.classList.contains('open') && event.key === 'Escape') closeComicViewer();
+  });
+
 })();
