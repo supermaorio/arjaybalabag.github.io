@@ -91,7 +91,7 @@
   albumViewer?.querySelector('.album-viewer-close')?.addEventListener('click', closeAlbum);
   albumViewer?.addEventListener('click', event => { if (event.target === albumViewer) closeAlbum(); });
   document.addEventListener('keydown', event => {
-    if (albumViewer?.classList.contains('open') && event.key === 'Escape') closeAlbum();
+    if (albumViewer?.classList.contains('open') && !lightbox?.classList.contains('open') && event.key === 'Escape') closeAlbum();
   });
 
   const lightbox = document.querySelector('.lightbox');
@@ -124,7 +124,7 @@
   function closeLightbox() {
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    document.body.style.overflow = albumViewer?.classList.contains('open') ? 'hidden' : '';
     lastFocusedElement?.focus();
   }
 
