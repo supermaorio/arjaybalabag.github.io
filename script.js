@@ -24,14 +24,39 @@
   const albumViewer = document.querySelector('.album-viewer');
   const albumTitle = albumViewer?.querySelector('.album-viewer-title');
   const albumEmpty = albumViewer?.querySelector('.album-empty');
-  const albumNames = {events:'Event Documentation',photography:'Photography Portfolio'};
+  const albumNames = {events:'iDeasigns',photography:'mugnaniMao'};
+  const albumPhotos = {
+    events: [
+      {src:'images/sportsfest.jpg',alt:'Sports Fest event'},
+      {src:'images/retreat.jpg',alt:'Retreat event'},
+      {src:'images/fellowship.jpg',alt:'Fellowship event'},
+      {src:'images/foundationschool.jpg',alt:'Foundation School'},
+      {src:'images/youthcamp.jpg',alt:'Youth Camp'},
+      {src:'images/vbs.jpg',alt:'Vacation Bible School'},
+      {src:'images/conference.jpg',alt:'Conference'},
+      {src:'images/anniversary.jpg',alt:'Anniversary'}
+    ],
+    photography: []
+  };
+  const albumGrid = albumViewer?.querySelector('.album-photo-grid');
   const albumButtons = [...document.querySelectorAll('.collection-card')];
   let albumLastFocus = null;
   function openAlbum(button) {
     albumLastFocus = document.activeElement;
     const album = button.dataset.album;
     if (albumTitle) albumTitle.textContent = albumNames[album] || 'Photo Album';
-    if (albumEmpty) albumEmpty.hidden = false;
+    const photos = albumPhotos[album] || [];
+    if (albumGrid) {
+      albumGrid.replaceChildren();
+      photos.forEach(photo => {
+        const image = document.createElement('img');
+        image.src = photo.src;
+        image.alt = photo.alt;
+        image.loading = 'lazy';
+        albumGrid.appendChild(image);
+      });
+    }
+    if (albumEmpty) albumEmpty.hidden = photos.length > 0;
     albumViewer?.classList.add('open');
     albumViewer?.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden';
