@@ -95,3 +95,8 @@
 .comic-viewer-frame{width:min(100%,1200px);height:calc(100vh - 90px);margin:0 auto;background:#111;overflow:hidden;border-radius:6px}
 .comic-viewer-frame iframe{display:block;width:100%;height:100%;border:0;background:#111}
 @media(max-width:640px){.comic-viewer{padding:10px 3%}.comic-viewer-frame{height:calc(100vh - 68px);border-radius:3px}.comic-viewer-bar{font-size:9px}}
+
+
+/* Make the portfolio cover open in the shared full-size image viewer */
+.cover-photo.cover-image-trigger{display:block;width:100%;padding:0;border:0;text-align:left;cursor:zoom-in;font:inherit}
+.cover-image-trigger:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
