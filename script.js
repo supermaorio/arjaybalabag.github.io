@@ -10,8 +10,8 @@
     menuButton?.setAttribute('aria-expanded', 'false');
   }));
 
-  const filters = document.querySelectorAll('.filter');
-  const cards = document.querySelectorAll('.project-card');
+  const filters = [...document.querySelectorAll('.filter')];
+  const cards = [...document.querySelectorAll('.project-card')];
   filters.forEach(filter => filter.addEventListener('click', () => {
     filters.forEach(item => item.classList.toggle('active', item === filter));
     const category = filter.dataset.filter;
@@ -25,6 +25,8 @@
   const caption = lightbox?.querySelector('.lightbox-caption');
   const projectButtons = [...document.querySelectorAll('.project-image')];
   let currentIndex = 0;
+  let lastFocusedElement = null;
+
   function showProject(index) {
     currentIndex = (index + projectButtons.length) % projectButtons.length;
     const button = projectButtons[currentIndex];
@@ -33,6 +35,7 @@
     caption.textContent = button.closest('.project-card')?.querySelector('h3')?.textContent || '';
   }
   function openLightbox(index) {
+    lastFocusedElement = document.activeElement;
     showProject(index);
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
@@ -43,14 +46,16 @@
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    lastFocusedElement?.focus();
   }
+
   projectButtons.forEach((button, index) => button.addEventListener('click', () => openLightbox(index)));
   lightbox?.querySelector('.lightbox-close')?.addEventListener('click', closeLightbox);
   lightbox?.querySelector('.lightbox-prev')?.addEventListener('click', () => showProject(currentIndex - 1));
   lightbox?.querySelector('.lightbox-next')?.addEventListener('click', () => showProject(currentIndex + 1));
   lightbox?.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', event => {
-    if (!lightbox.classList.contains('open')) return;
+    if (!lightbox?.classList.contains('open')) return;
     if (event.key === 'Escape') closeLightbox();
     if (event.key === 'ArrowLeft') showProject(currentIndex - 1);
     if (event.key === 'ArrowRight') showProject(currentIndex + 1);
