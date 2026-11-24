@@ -85,3 +85,13 @@
 .work-section .comic-subtitle{font-size:11px;color:rgba(255,255,255,.78)}
 .work-section .comic-open{margin-top:26px;border:1px solid rgba(255,255,255,.7);border-radius:3px;padding:8px 11px;font-size:9px;font-weight:700;letter-spacing:1px}
 .work-section .comic-project:hover .comic-art{filter:brightness(1.08)}
+
+
+/* In-page, view-only Canva comic reader */
+.comic-viewer{position:fixed;inset:0;z-index:60;display:none;flex-direction:column;background:rgba(12,13,17,.97);padding:18px 4%;color:#fff}
+.comic-viewer.open{display:flex}
+.comic-viewer-bar{display:flex;align-items:center;justify-content:space-between;min-height:42px;max-width:1200px;width:100%;margin:0 auto 12px;font-size:10px;font-weight:700;letter-spacing:1.2px;color:#d7d9df}
+.comic-viewer-close{width:40px;height:40px;border:1px solid #555963;border-radius:50%;background:#20232b;color:#fff;font-size:28px;line-height:1;cursor:pointer}
+.comic-viewer-frame{width:min(100%,1200px);height:calc(100vh - 90px);margin:0 auto;background:#111;overflow:hidden;border-radius:6px}
+.comic-viewer-frame iframe{display:block;width:100%;height:100%;border:0;background:#111}
+@media(max-width:640px){.comic-viewer{padding:10px 3%}.comic-viewer-frame{height:calc(100vh - 68px);border-radius:3px}.comic-viewer-bar{font-size:9px}}
