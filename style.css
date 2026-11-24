@@ -109,3 +109,24 @@
 .site-footer .brand-logo{display:block;width:28px;height:28px;object-fit:contain}
 .site-header .wordmark,.site-footer .wordmark{display:inline-flex;align-items:center;justify-content:center;line-height:0}
 
+
+
+/* AAO1 website project preview card */
+.work-section .website-project{display:flex;align-items:center;justify-content:center;padding:5%;background:linear-gradient(145deg,#e8edf3,#d7e0e9);text-decoration:none;cursor:pointer}
+.website-browser{display:block;width:88%;height:88%;overflow:hidden;border-radius:7px;background:#fff;box-shadow:0 14px 38px rgba(25,38,55,.2);transform:rotate(-1deg);transition:transform .35s ease}
+.website-project:hover .website-browser{transform:rotate(0) scale(1.025)}
+.website-browser-bar{height:22px;display:flex;align-items:center;gap:4px;padding:0 9px;background:#f1f2f4;border-bottom:1px solid #e4e6e9}
+.website-browser-bar i{width:5px;height:5px;border-radius:50%;background:#c2c7ce}
+.website-browser-bar span{margin-left:8px;color:#8a9099;font-size:7px}
+.website-page{display:block;padding:7% 9%;color:#242b35}
+.website-brand{display:block;font-size:clamp(10px,1.4vw,17px);font-weight:800;letter-spacing:.04em;color:#263b52}
+.website-brand small{display:block;font-size:5px;letter-spacing:.19em;color:#778697;margin-top:2px}
+.website-headline{display:block;margin:7% 0 5%;font-family:Georgia,serif;font-size:clamp(17px,2.8vw,34px);line-height:.94;letter-spacing:-.04em;color:#31465a}
+.website-headline b{font-weight:700;color:#182c40}
+.website-links{display:block;font-size:clamp(4px,.55vw,7px);letter-spacing:.1em;color:#6d7d8d;border-bottom:1px solid #dfe4e9;padding-bottom:5%}
+.website-values{display:block;margin-top:7%;font-size:clamp(6px,.8vw,10px);font-weight:700;letter-spacing:.15em;color:#52687c}
+.website-value-lines{display:flex;gap:4%;margin-top:4%}
+.website-value-lines i{display:block;width:30%;aspect-ratio:1.35;background:linear-gradient(145deg,#e7edf2,#cbd6df);border-radius:2px}
+.website-open{position:absolute;right:12px;bottom:12px;padding:9px 12px;background:rgba(255,255,255,.96);border-radius:4px;color:#1d2936;font-size:9px;font-weight:700;letter-spacing:.05em;opacity:0;transform:translateY(4px);transition:.25s}
+.website-project:hover .website-open,.website-project:focus-visible .website-open{opacity:1;transform:none}
+@media(max-width:640px){.website-open{opacity:1;transform:none}.website-browser{width:92%;height:88%}}
