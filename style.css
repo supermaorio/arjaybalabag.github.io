@@ -102,3 +102,9 @@
 .profile-hero .cover-photo{height:auto;aspect-ratio:16/9}
 .profile-hero .cover-photo img{width:100%;height:100%;object-fit:cover}
 @media(max-width:640px){.profile-hero .cover-photo{height:auto;aspect-ratio:16/9}}
+
+
+/* Uploaded brand mark replaces the AB text wordmark */
+.site-header .wordmark,.site-footer .wordmark{display:inline-flex;align-items:center;justify-content:center;line-height:0}
+.brand-logo{display:block;width:34px;height:34px;object-fit:contain}
+.site-footer .brand-logo{width:30px;height:30px}
