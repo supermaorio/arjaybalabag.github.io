@@ -144,3 +144,10 @@
 .album-photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .album-photo-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:5px}
 @media(max-width:640px){.collection-heading{display:block}.collection-heading>p{margin-top:9px}.collection-grid{grid-template-columns:1fr;gap:12px}.collection-cover{aspect-ratio:16/8}.collection-info{padding:12px}.album-viewer{padding:20px 5%}.album-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* Clickable album thumbnails */
+.album-photo-grid .album-photo-button{display:block;width:100%;padding:0;border:0;border-radius:5px;overflow:hidden;background:#e9ebef;cursor:zoom-in;line-height:0}
+.album-photo-grid .album-photo-button img{transition:transform .35s ease,filter .25s ease}
+.album-photo-grid .album-photo-button:hover img,.album-photo-grid .album-photo-button:focus-visible img{transform:scale(1.035);filter:brightness(.88)}
+.album-photo-grid .album-photo-button:focus-visible{outline:3px solid #1769ff;outline-offset:3px}
