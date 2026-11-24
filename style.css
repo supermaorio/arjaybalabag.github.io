@@ -151,3 +151,7 @@
 .album-photo-grid .album-photo-button img{transition:transform .35s ease,filter .25s ease}
 .album-photo-grid .album-photo-button:hover img,.album-photo-grid .album-photo-button:focus-visible img{transform:scale(1.035);filter:brightness(.88)}
 .album-photo-grid .album-photo-button:focus-visible{outline:3px solid #1769ff;outline-offset:3px}
+
+
+/* The image lightbox must sit above the album overlay */
+.lightbox{z-index:80}
