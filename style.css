@@ -104,6 +104,7 @@
 @media(max-width:640px){.profile-hero .cover-photo{height:auto;aspect-ratio:16/9}}
 
 
-/* Brand logo sizing: 100 × 100 px */
-.site-header .brand-logo,.site-footer .brand-logo{display:block;width:100px;height:100px;object-fit:contain}
+/* Brand logo sizing: compact navbar, balanced footer */
+.site-header .brand-logo{display:block;width:32px;height:32px;object-fit:contain}
+.site-footer .brand-logo{display:block;width:28px;height:28px;object-fit:contain}
 .site-header .wordmark,.site-footer .wordmark{display:inline-flex;align-items:center;justify-content:center;line-height:0}
