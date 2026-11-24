@@ -1,109 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arjay Freg Balabag | Layout Artist</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171714"><meta name="description" content="Portfolio of Arjay Freg Balabag — layout artist, graphic designer and visual storyteller.">
+<title>Arjay Freg Balabag — Visual Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-    <nav>
-        <a href="#">Home</a>
-        <a href="#about">About</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <section class="hero">
-
-        <img src="images/profile.png" alt="Arjay Balabag" class="profile">
-
-        <h1>Arjay Freg Balabag</h1>
-
-        <p class="subtitle">
-            Layout Artist • Graphic Designer • Visual Storyteller
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#portfolio" class="btn">View Portfolio</a>
-            <a href="resume.pdf" class="btn btn-secondary" target="_blank">
-                Download Resume
-            </a>
-        </div>
-
-    </section>
-
-    <section id="about">
-
-        <h2>About Me</h2>
-
-        <p>
-            I am a Layout Artist and Graphic Designer specializing in social media campaigns,
-            promotional materials, event branding, and visual storytelling.
-            My work focuses on creating visually engaging designs that communicate
-            ideas clearly and effectively.
-        </p>
-
-    </section>
-
-    <section id="portfolio">
-
-        <h2>Featured Projects</h2>
-        
-        <h3>DEPLOY TEST 123</h3>
-
-        <div class="gallery">
-
-            <img src="images/sportsfest.jpg" alt="Sports Fest" onclick="openLightbox(this.src)">
-            <img src="images/retreat.jpg" alt="Retreat" onclick="openLightbox(this.src)">
-            <img src="images/fellowship.jpg" alt="Fellowship" onclick="openLightbox(this.src)">
-            <img src="images/foundationschool.jpg" alt="Foundation School" onclick="openLightbox(this.src)">
-            <img src="images/youthcamp.jpg" alt="Youth Camp" onclick="openLightbox(this.src)">
-            <img src="images/vbs.jpg" alt="Vacation Bible School" onclick="openLightbox(this.src)">
-            <img src="images/conference.jpg" alt="Conference" onclick="openLightbox(this.src)">
-            <img src="images/product.jpg" alt="Product Design" onclick="openLightbox(this.src)">
-            <img src="images/anniversary.jpg" alt="Product Design" onclick="openLightbox(this.src)">
-
-        </div>
-
-    </section>
-
-    <!-- LIGHTBOX -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <img id="lightbox-img" src="" alt="">
-    </div>
-
-    <section id="contact">
-
-        <h2>Let's Connect</h2>
-
-        <p>Email: arjayfreg@gmail.com</p>
-        <p>Contact: +63 916 242 8462</p>
-        <p>Location: Ma-a, Davao City, Philippines 8000</p>
-        <p>Facebook: SuperMaorio</p>
-
-    </section>
-
-    <footer>
-        <p>© 2026 Arjay Freg Balabag</p>
-    </footer>
-
-    <script>
-
-        function openLightbox(imageSrc) {
-            document.getElementById("lightbox").style.display = "flex";
-            document.getElementById("lightbox-img").src = imageSrc;
-        }
-
-        function closeLightbox() {
-            document.getElementById("lightbox").style.display = "none";
-        }
-
-    </script>
-
-</body>
-
-</html>
+<div class="grain" aria-hidden="true"></div>
+<header class="site-header">
+<a class="wordmark" href="#top" aria-label="Arjay Balabag home">AB<span>.</span></a>
+<button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
+<nav class="nav-links" aria-label="Main navigation"><a href="#work">Selected work</a><a href="#about">About</a><a href="#contact">Contact</a><a class="nav-resume" href="resume.pdf" target="_blank" rel="noopener">Résumé ↗</a></nav>
+</header>
+<main id="top">
+<section class="hero">
+<div class="hero-copy"><p class="eyebrow"><i class="status-dot"></i> INDEPENDENT CREATIVE / PHILIPPINES</p>
+<h1>Ideas into<br><em>visual impact.</em></h1>
+<p class="hero-intro">I’m Arjay — a layout artist and graphic designer creating thoughtful visuals for brands, communities, and meaningful moments.</p>
+<div class="hero-actions"><a class="button button-light" href="#work">Explore my work <span>↘</span></a><a class="text-link" href="#contact">Let’s collaborate <span>↗</span></a></div></div>
+<div class="hero-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-photo-wrap"><img src="images/profile.png" alt="Portrait of Arjay Freg Balabag" class="hero-photo"></div><div class="hero-sticker">DESIGN<br>WITH<br>INTENT<span>✳</span></div><div class="hero-index">CREATIVE PORTFOLIO<br>2026 — 2027</div></div>
+<div class="hero-bottom"><span>SCROLL TO DISCOVER</span><span class="scroll-line"></span><span>01 / 04</span></div>
+</section>
+<section class="intro-strip" aria-label="Creative disciplines"><span>LAYOUT DESIGN</span><b>✳</b><span>VISUAL STORYTELLING</span><b>✳</b><span>CAMPAIGN DESIGN</span><b>✳</b><span>BRAND EXPERIENCES</span></section>
+<section class="work-section section-pad" id="work">
+<div class="section-heading"><div><p class="eyebrow">A FEW THINGS I’VE MADE</p><h2>Selected <em>work.</em></h2></div><p class="section-note">A collection of visual projects spanning events, community campaigns, and product-focused design.</p></div>
+<div class="filters" role="group" aria-label="Filter projects"><button class="filter active" data-filter="all">All work <span>09</span></button><button class="filter" data-filter="events">Events</button><button class="filter" data-filter="community">Community</button><button class="filter" data-filter="design">Design</button></div>
+<div class="project-grid">
+<article class="project-card project-large" data-category="events"><button class="project-image" data-full="images/sportsfest.jpg" aria-label="View Sports Fest project"><img src="images/sportsfest.jpg" alt="Sports Fest event design" loading="lazy"><span class="view-mark">↗</span></button><div class="project-meta"><div><span class="project-type">EVENT CAMPAIGN</span><h3>Sports Fest</h3></div><span class="project-number">01</span></div></article>
+<article class="project-card project-offset" data-category="community"><button class="project-image" data-full="images/retreat.jpg" aria-label="View Retreat project"><img src="images/retreat.jpg" alt="Retreat creative design" loading="lazy"><span class="view-mark">↗</span></button><div class="project-meta"><div><span class="project-type">COMMUNITY</span><h3>Retreat</h3></div><span class="project-number">02</span></div></article>
+<article class="project-card" data-category="community"><button class="project-image" data-full="images/fellowship.jpg" aria-label="View Fellowship project"><img src="images/fellowship.jpg" alt="Fellowship event design" loading="lazy"><span class="view-mark">↗</span></button><div class="project-meta"><div><span class="project-type">COMMUNITY</span><h3>Fellowship</h3></div><span class="project-number">03</span></div></article>
+<article class="project-card project-offset-sm" data-category="design"><button class="project-image" data-full="images/product.jpg" aria-label="View Product Design project"><img src="images/product.jpg" alt="Product design presentation" loading="lazy"><span class="view-mark">↗</span></button><div class="project-meta"><div><span class="project-type">GRAPHIC DESIGN</span><h3>Product Design</h3></div><span class="project-number">04</span></div></article>
+<article class="project-card project-large" data-category="community"><button class="project-image" data-full="images/foundationschool.jpg" aria-label="View Foundation School project"><img src="images/foundationschool.jpg" alt="Foundation School creative materials" loading="lazy"><span class="view-mark">↗</span></button><div class="project-meta"><div><span class="project-type">EDUCATION</span><h3>Foundation School</h3></div><span class="project-number">05</span></div></article>
+<article class="project-card project-offset" data-category="events"><button class="project-image" data-full="images/youthcamp.jpg" aria-label="View Youth Camp project"><img src="images/youthcamp.jpg" alt="Youth Camp event design" loading="lazy"><span class="view-mark">↗</span></button><div class="project-meta"><div><span class="project-type">EVENT CAMPAIGN</span><h3>Youth Camp</h3></div><span class="project-number">06</span></div></article>
+<article class="project-card project-offset-sm" data-category="community"><button class="project-image" data-full="images/vbs.jpg" aria-label="View Vacation Bible School project"><img src="images/vbs.jpg" alt="Vacation Bible School design" loading="lazy"><span class="view-mark">↗</span></button><div class="project-meta"><div><span class="project-type">EDUCATION</span><h3>Vacation Bible School</h3></div><span class="project-number">07</span></div></article>
+<article class="project-card" data-category="events"><button class="project-image" data-full="images/conference.jpg" aria-label="View Conference project"><img src="images/conference.jpg" alt="Conference visual design" loading="lazy"><span class="view-mark">↗</span></button><div class="project-meta"><div><span class="project-type">EVENT CAMPAIGN</span><h3>Conference</h3></div><span class="project-number">08</span></div></article>
+<article class="project-card project-offset" data-category="events"><button class="project-image" data-full="images/anniversary.jpg" aria-label="View Anniversary project"><img src="images/anniversary.jpg" alt="Anniversary event design" loading="lazy"><span class="view-mark">↗</span></button><div class="project-meta"><div><span class="project-type">EVENT CAMPAIGN</span><h3>Anniversary</h3></div><span class="project-number">09</span></div></article>
+</div><p class="work-footnote">PROJECT DETAILS AND CREDITS CAN BE ADDED AS EACH CASE STUDY IS DEVELOPED.</p>
+</section>
+<section class="about-section section-pad" id="about">
+<div class="about-label"><p class="eyebrow">A LITTLE ABOUT ME</p><span class="about-symbol">✳</span></div>
+<div class="about-content"><h2>Design should<br>make people <em>feel.</em></h2><p>I’m a layout artist and graphic designer specializing in social media campaigns, promotional materials, event branding, and visual storytelling. I enjoy turning ideas into clear, engaging visual experiences — balancing strong composition, purposeful typography, and detail.</p><p>My approach is curious, collaborative, and intentional: understand the message first, then make the visuals do their job.</p><a class="text-link dark-link" href="resume.pdf" target="_blank" rel="noopener">View résumé <span>↗</span></a></div>
+<div class="about-footer"><span>LAYOUT / GRAPHIC DESIGN</span><span>VISUAL COMMUNICATION</span><span>CREATIVE THINKING</span></div>
+</section>
+<section class="contact-section section-pad" id="contact"><p class="eyebrow">HAVE A PROJECT IN MIND?</p><h2>Let’s make<br>something <em>matter.</em></h2><a class="contact-email" href="mailto:arjayfreg@gmail.com">arjayfreg@gmail.com <span>↗</span></a>
+<div class="contact-bottom"><div><span class="contact-label">BASED IN</span><p>Philippines</p></div><div><span class="contact-label">ELSEWHERE</span><p><a href="https://www.facebook.com/SuperMaorio" target="_blank" rel="noopener">Facebook ↗</a></p></div><div><span class="contact-label">OPEN TO</span><p>Creative opportunities & collaborations</p></div></div></section>
+</main>
+<footer class="site-footer"><a class="wordmark" href="#top">AB<span>.</span></a><span>© 2026 ARJAY FREG BALABAG</span><a href="#top">BACK TO TOP ↑</a></footer>
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Project image preview" aria-hidden="true"><button class="lightbox-close" aria-label="Close image preview">×</button><button class="lightbox-prev" aria-label="Previous project">←</button><img src="" alt="Expanded project preview"><button class="lightbox-next" aria-label="Next project">→</button><p class="lightbox-caption"></p></div>
+<script src="script.js"></script>
+</body></html>
