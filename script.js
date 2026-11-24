@@ -20,6 +20,36 @@
     });
   }));
 
+  // Album folders are intentionally empty until photo sets are supplied.
+  const albumViewer = document.querySelector('.album-viewer');
+  const albumTitle = albumViewer?.querySelector('.album-viewer-title');
+  const albumEmpty = albumViewer?.querySelector('.album-empty');
+  const albumNames = {events:'Event Documentation',photography:'Photography Portfolio'};
+  const albumButtons = [...document.querySelectorAll('.collection-card')];
+  let albumLastFocus = null;
+  function openAlbum(button) {
+    albumLastFocus = document.activeElement;
+    const album = button.dataset.album;
+    if (albumTitle) albumTitle.textContent = albumNames[album] || 'Photo Album';
+    if (albumEmpty) albumEmpty.hidden = false;
+    albumViewer?.classList.add('open');
+    albumViewer?.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    albumViewer?.querySelector('.album-viewer-close')?.focus();
+  }
+  function closeAlbum() {
+    albumViewer?.classList.remove('open');
+    albumViewer?.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    albumLastFocus?.focus();
+  }
+  albumButtons.forEach(button => button.addEventListener('click', () => openAlbum(button)));
+  albumViewer?.querySelector('.album-viewer-close')?.addEventListener('click', closeAlbum);
+  albumViewer?.addEventListener('click', event => { if (event.target === albumViewer) closeAlbum(); });
+  document.addEventListener('keydown', event => {
+    if (albumViewer?.classList.contains('open') && event.key === 'Escape') closeAlbum();
+  });
+
   const lightbox = document.querySelector('.lightbox');
   const lightboxImage = lightbox?.querySelector('img');
   const caption = lightbox?.querySelector('.lightbox-caption');
