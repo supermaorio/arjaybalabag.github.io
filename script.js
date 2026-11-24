@@ -23,7 +23,7 @@
   const lightbox = document.querySelector('.lightbox');
   const lightboxImage = lightbox?.querySelector('img');
   const caption = lightbox?.querySelector('.lightbox-caption');
-  const projectButtons = [...document.querySelectorAll('.project-image:not(.comic-project-trigger)')];
+  const projectButtons = [...document.querySelectorAll('.project-image:not(.comic-project-trigger):not(.website-project)')];
   const lightboxControls = [...(lightbox?.querySelectorAll('button') || [])];
   let currentIndex = 0;
   let visibleProjects = projectButtons;
